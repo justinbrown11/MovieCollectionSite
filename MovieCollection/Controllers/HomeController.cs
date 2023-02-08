@@ -12,10 +12,12 @@ namespace MovieCollection.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private MovieContext _movieContext { get; set; }
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, MovieContext movie)
         {
             _logger = logger;
+            _movieContext = movie;
         }
 
         public IActionResult Index()
@@ -35,9 +37,20 @@ namespace MovieCollection.Controllers
         }
 
         [HttpPost]
-        public IActionResult NewMovie()
+        public IActionResult NewMovie(NewMovieModel m)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                _movieContext.Add(m);
+                _movieContext.SaveChanges();
+
+                return View("Confirmation", m);
+            }
+
+            else
+            {
+                return View(m);
+            }
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

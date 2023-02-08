@@ -4,42 +4,60 @@
 
 @model MovieCollection.Models.NewMovieModel
 
-<h1 class="display-4">Save a new movie</h1>
+<h1 class="display-4 text-center">Save a new movie</h1>
 
 <div>
     <form method="post">
 
-        <label asp-for="Title">Movie Title:</label>
-        <input asp-for="Title" /><br />
+        <div class="form-group">
+            <label asp-for="Title">Movie Title:</label>
+            <input class="form-control" asp-for="Title" /><br />
+        </div>
 
-        <label asp-for="Category">Category:</label>
-        <input asp-for="Category" /><br />
+        <div class="form-group">
+            <label asp-for="Category">Category:</label>
+            <input class="form-control" asp-for="Category" /><br />
+        </div>
 
-        <label asp-for="Year">Year:</label>
-        <input asp-for="Year" /><br />
+        <div class="form-group">
+            <label asp-for="Year">Year:</label>
+            <input class="form-control" asp-for="Year" /><br />
+        </div>
 
-        <label asp-for="Director">Director:</label>
-        <input asp-for="Director" /><br />
+        <div class="form-group">
+            <label asp-for="Director">Director:</label>
+            <input class="form-control" asp-for="Director" /><br />
+        </div>
 
-        <label asp-for="Rating">Rating:</label>
-        <select asp-for="Rating">
-            <option value="G">G</option>
-            <option value="PG">PG</option>
-            <option value="PG-13">PG-13</option>
-            <option value="R">R</option>
-        </select><br /><br />
+        <div class="form-group">
+            <label asp-for="Rating">Rating:</label>
+            <select class="form-control" asp-for="Rating">
+                <option value="G">G</option>
+                <option value="PG">PG</option>
+                <option value="PG-13">PG-13</option>
+                <option value="R">R</option>
+            </select><br /><br />
+        </div>
 
-        <label asp-for="Edited">Is it edited?:</label>
-        <select asp-for="Edited">
-            <option value="true">Yes</option>
-            <option value="false">No</option>
-        </select><br /><br />
+        <div class="form-group">
+            <label asp-for="Edited">Is it edited?:</label>
+            <select class="form-control" asp-for="Edited">
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select><br /><br />
+        </div>
 
-        <label asp-for="LentTo">Lent To:</label>
-        <input asp-for="LentTo" /><br />
+        <div class="form-group">
+            <label asp-for="LentTo">Lent To:</label>
+            <input class="form-control" asp-for="LentTo" /><br />
+        </div>
 
-        <label asp-for="Notes">Notes:</label>
-        <input asp-for="Notes" /><br />
+        <div class="form-group">
+            <label asp-for="Notes">Notes:</label>
+            <input class="form-control" asp-for="Notes" /><br />
+        </div>
+
+        <div asp-validation-summary="All" class="text-danger"></div>
 
         <button class="btn btn-primary" type="submit">Save</button>
 

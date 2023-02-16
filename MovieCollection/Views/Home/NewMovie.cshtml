@@ -4,7 +4,7 @@
 
 @model MovieCollection.Models.NewMovieModel
 
-<h1 class="display-4 text-center">Save a new movie</h1>
+<h1 class="display-4 text-center">@ViewBag.Header</h1>
 
 <div>
     <form method="post">
@@ -15,8 +15,14 @@
         </div>
 
         <div class="form-group">
-            <label asp-for="Category">Category:</label>
-            <input class="form-control" asp-for="Category" /><br />
+            <label asp-for="CategoryId">Category:</label>
+            <select class="form-control" asp-for="CategoryId">
+                <option value="">Select a Category</option>
+                @foreach (Category c in ViewBag.Categories)
+                {
+                    <option value="@c.CategoryId">@c.CategoryName</option>
+                }
+            </select>
         </div>
 
         <div class="form-group">
@@ -30,12 +36,13 @@
         </div>
 
         <div class="form-group">
-            <label asp-for="Rating">Rating:</label>
-            <select class="form-control" asp-for="Rating">
-                <option value="G">G</option>
-                <option value="PG">PG</option>
-                <option value="PG-13">PG-13</option>
-                <option value="R">R</option>
+            <label asp-for="RatingId">Rating:</label>
+            <select class="form-control" asp-for="RatingId">
+                <option value="">Select a Rating</option>
+                @foreach (Rating r in ViewBag.Ratings)
+                {
+                    <option value="@r.RatingId">@r.RatingDescription</option>
+                }
             </select><br /><br />
         </div>
 

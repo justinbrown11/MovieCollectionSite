@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MovieCollection.Models
 {
+    /// <summary>
+    /// Movie ratings
+    /// </summary>
     public class Rating
     {
         [Key]

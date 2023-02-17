@@ -4,9 +4,11 @@
 
 @model NewMovieModel
 
+<!--Deletion confirmation message-->
 <h2>Confirm Deletion</h2>
 <h3>Are you sure you want to delete the record for @Model.Title?</h3>
 
+<!--Deletion buttons-->
 <form asp-controller="Home" asp-action="DeleteMovie" method="post">
 
     <input type="hidden" asp-for="MovieId" />

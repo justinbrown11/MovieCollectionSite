@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MovieCollection.Models
 {
+    /// <summary>
+    /// Movie Database Context
+    /// </summary>
     public class MovieContext : DbContext
     {
         public MovieContext(DbContextOptions<MovieContext> options) : base(options)
@@ -19,6 +22,7 @@ namespace MovieCollection.Models
 
         protected override void OnModelCreating(ModelBuilder mb)
         {
+            // Seed Ratings
             mb.Entity<Rating>().HasData(
                 new Rating
                 {
@@ -42,6 +46,7 @@ namespace MovieCollection.Models
                 }
             );
 
+            // Seed Categories
             mb.Entity<Category>().HasData(
                 new Category
                 {
@@ -85,6 +90,7 @@ namespace MovieCollection.Models
                 }
             );
 
+            // Seed Movies
             mb.Entity<NewMovieModel>().HasData(
                 new NewMovieModel
                 {

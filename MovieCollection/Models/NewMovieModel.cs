@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MovieCollection.Models
 {
+    /// <summary>
+    /// Movies
+    /// </summary>
     public class NewMovieModel
     {
         [Key]
